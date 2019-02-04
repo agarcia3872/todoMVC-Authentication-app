@@ -1,0 +1,22 @@
+﻿
+@{
+    //ViewData["Title"] = "Index";
+    Layout = null;
+}
+
+<h2>My Tasks</h2>
+
+<p><a asp-controller="Task" asp-action="Add">Add Tasks</a></p>
+
+@if (ViewBag.Tasks.Count == 0)
+{
+    <p>No Tasks Yet!</p>
+}
+
+<ul>
+    @foreach (string task in ViewBag.tasks)
+    {
+        <li>@task</li>
+    }
+</ul>
+
