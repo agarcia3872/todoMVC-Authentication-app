@@ -24,6 +24,14 @@ namespace todoMVC_app.Controllers
             return View(db.Todos.ToList().Where( x => x.User == currentUser));
         }
 
+        public ActionResult BuildTodoTable()
+        {
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault
+                (x => x.Id == currentUserId);
+            return PartialView("_TodoTable", db.Todos.ToList().Where(x => x.User == currentUser));
+        }
+
         // GET: Todoes/Details/5
         public ActionResult Details(int? id)
         {
