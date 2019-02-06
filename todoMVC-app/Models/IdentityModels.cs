@@ -25,6 +25,8 @@ namespace todoMVC_app.Models
         {
         }
 
+        public DbSet<Todo> Todos { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

@@ -109,3 +109,6 @@ C:\Users\Alejandro\source\repos\todoMVC-Authentication-app\todoMVC-app\obj\Debug
 C:\Users\Alejandro\source\repos\todoMVC-Authentication-app\todoMVC-app\obj\Debug\todoMVC-app.csproj.CopyComplete
 C:\Users\Alejandro\source\repos\todoMVC-Authentication-app\todoMVC-app\obj\Debug\todoMVC-app.dll
 C:\Users\Alejandro\source\repos\todoMVC-Authentication-app\todoMVC-app\obj\Debug\todoMVC-app.pdb
+C:\Users\Alejandro\source\repos\todoMVC-Authentication-app\todoMVC-app\obj\Debug\todoMVC_app.Migrations.InitialCreate.resources
+C:\Users\Alejandro\source\repos\todoMVC-Authentication-app\todoMVC-app\obj\Debug\todoMVC-app.csproj.GenerateResource.cache
+C:\Users\Alejandro\source\repos\todoMVC-Authentication-app\todoMVC-app\obj\Debug\todoMVC_app.Migrations.Todo1.resources

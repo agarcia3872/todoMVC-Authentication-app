@@ -176,11 +176,21 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IActionResult.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\TasksController.cs" />
+    <Compile Include="Controllers\TodoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901300128119_InitialCreate.cs" />
+    <Compile Include="Migrations\201901300128119_InitialCreate.Designer.cs">
+      <DependentUpon>201901300128119_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902060043379_Todo1.cs" />
+    <Compile Include="Migrations\201902060043379_Todo1.Designer.cs">
+      <DependentUpon>201902060043379_Todo1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Todo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -245,7 +255,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\OldIndex.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -275,9 +285,12 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Tasks\Add.cshtml" />
-    <Content Include="Views\Tasks\Index.cshtml" />
+    <Content Include="Views\Home\OldTasksIndex.cshtml" />
+    <Content Include="Views\Todoes\Create.cshtml" />
+    <Content Include="Views\Todoes\Delete.cshtml" />
+    <Content Include="Views\Todoes\Details.cshtml" />
+    <Content Include="Views\Todoes\Edit.cshtml" />
+    <Content Include="Views\Todoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,6 +306,14 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901300128119_InitialCreate.resx">
+      <DependentUpon>201901300128119_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902060043379_Todo1.resx">
+      <DependentUpon>201902060043379_Todo1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
