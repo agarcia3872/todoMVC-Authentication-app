@@ -18,18 +18,21 @@ namespace todoMVC_app.Controllers
         // GET: Todoes
         public ActionResult Index()
         {
-            string currentUserId = User.Identity.GetUserId();
-            ApplicationUser currentUser = db.Users.FirstOrDefault
-                (x => x.Id == currentUserId);
-            return View(db.Todos.ToList().Where( x => x.User == currentUser));
+            return View();
         }
 
-        public ActionResult BuildTodoTable()
+        private IEnumerable<Todo> GetTodos()
         {
             string currentUserId = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
-            return PartialView("_TodoTable", db.Todos.ToList().Where(x => x.User == currentUser));
+            return db.Todos.ToList().Where(x => x.User == currentUser);
+        }
+
+        public ActionResult BuildTodoTable()
+        {
+            
+            return PartialView("_TodoTable", GetTodos());
         }
 
         // GET: Todoes/Details/5
@@ -72,6 +75,25 @@ namespace todoMVC_app.Controllers
             }
 
             return View(todo);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AJAXCreate([Bind(Include = "Id,Description")] Todo todo)
+        {
+            if (ModelState.IsValid)
+            {
+                string currentUserId = User.Identity.GetUserId();
+                ApplicationUser currentUser = db.Users.FirstOrDefault
+                    (x => x.Id == currentUserId);
+                todo.User = currentUser;
+                todo.IsDone = false;
+                db.Todos.Add(todo);
+                db.SaveChanges();
+                
+            }
+
+            return PartialView("_TodoTable", GetTodos());
         }
 
         // GET: Todoes/Edit/5
