@@ -108,6 +108,15 @@ namespace todoMVC_app.Controllers
             {
                 return HttpNotFound();
             }
+
+            string currentUserId = User.Identity.GetUserId();
+            ApplicationUser currentUser = db.Users.FirstOrDefault
+                (x => x.Id == currentUserId);
+            if (todo.User != currentUser)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             return View(todo);
         }
 
@@ -125,6 +134,28 @@ namespace todoMVC_app.Controllers
                 return RedirectToAction("Index");
             }
             return View(todo);
+        }
+
+        [HttpPost]
+        
+        public ActionResult AJAXEdit(int? id, bool value )
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Todo todo = db.Todos.Find(id);
+            if (todo == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                todo.IsDone = value;
+                db.Entry(todo).State = EntityState.Modified;
+                db.SaveChanges();
+                return PartialView("_TodoTable", GetTodos());
+            }            
         }
 
         // GET: Todoes/Delete/5
