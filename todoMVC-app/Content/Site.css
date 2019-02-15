@@ -22,3 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/*Crosses out todo task when completed*/
+.completedTask {
+    text-decoration: line-through;
+    color: red; 
+}

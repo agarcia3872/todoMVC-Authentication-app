@@ -73,7 +73,6 @@ namespace todoMVC_app.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(todo);
         }
 
@@ -90,7 +89,6 @@ namespace todoMVC_app.Controllers
                 todo.IsDone = false;
                 db.Todos.Add(todo);
                 db.SaveChanges();
-                
             }
 
             return PartialView("_TodoTable", GetTodos());
