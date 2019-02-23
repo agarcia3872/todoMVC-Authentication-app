@@ -28,3 +28,9 @@ textarea {
     text-decoration: line-through;
     color: red; 
 }
+
+.percentage {
+    float: left;
+    padding-right: 10px;
+}
+

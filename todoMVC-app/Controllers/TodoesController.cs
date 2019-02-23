@@ -26,7 +26,21 @@ namespace todoMVC_app.Controllers
             string currentUserId = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.FirstOrDefault
                 (x => x.Id == currentUserId);
-            return db.Todos.ToList().Where(x => x.User == currentUser);
+
+            IEnumerable<Todo> myTodos = db.Todos.ToList().Where(x => x.User == currentUser);
+
+            int completedCount = 0;
+            foreach (Todo todo in myTodos)
+            {
+                if (todo.IsDone)
+                {
+                    completedCount++;
+                }
+            }
+
+            ViewBag.Percent = Math.Round(100f * ((float)completedCount / (float)myTodos.Count()));
+
+            return myTodos;
         }
 
         public ActionResult BuildTodoTable()

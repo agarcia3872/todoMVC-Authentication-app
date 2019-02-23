@@ -1,13 +1,25 @@
 ﻿@model IEnumerable<todoMVC_app.Models.Todo>
 
+<div id="todoProgressBar">
+    <div class="percentage">
+        <p>@(ViewBag.Percent)%</p>
+    </div>
+    
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width:@(Html.AttributeEncode(ViewBag.Percent))%">
+        </div>
+    </div>
+
+</div>
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.IsDone)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
