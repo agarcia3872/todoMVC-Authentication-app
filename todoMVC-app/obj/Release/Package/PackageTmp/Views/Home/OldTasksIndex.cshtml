@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Tasks</h1>
+    <p class="lead">Welcome to Tasks - Your todo application.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>My Tasks</h2>
+        <p><a href='javascript:(function(){var t = top.document.getElementsByTagName("title")[0].innerHTML.trim(); var ind = t.indexOf("-"); var ts = ind > 0 ? t.substring(0,ind) : t; var te = encodeURIComponent(ts); var n = encodeURIComponent(t+"\n"+"\n"+top.document.location.href);window.open("https://script.google.com/macros/s/AKfycbxXRU6hDODxmFtIjWvQ45y6ddvwCnEUbD0yzjjX7-uQaLzQ9mkXRbs/exec?startingTitle="+te+"&startingNote="+n,"_blank","toolbar=0,location=0,menubar=0,height=348,width=840");})(); void(0);'>Google Tasks Bookmarklet</a></p>
+
+    </div>
+    <div class="col-md-8">
+        <h2>Calendar</h2>
+        <p>Calendar will go here.</p>
+        <iframe src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=b0s3pp9f7u3h550rver6v1nia4%40group.calendar.google.com&amp;color=%238C500B&amp;ctz=America%2FNew_York" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    @*<div class="col-md-4">
+        <h2>Task Description</h2>
+        <p>Task Description will go here.</p>
+    </div>*@
+</div>

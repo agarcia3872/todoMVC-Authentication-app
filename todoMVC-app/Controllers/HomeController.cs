@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace todoMVC_app.Controllers
 {
-    [Authorize]
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         public ActionResult Index()

@@ -38,7 +38,7 @@ namespace todoMVC_app.Controllers
                 }
             }
 
-            ViewBag.Percent = Math.Round(100f * ((float)completedCount / (float)myTodos.Count()));
+            ViewBag.Percent = 100f * (completedCount / (float)myTodos.Count());
 
             return myTodos;
         }
